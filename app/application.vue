@@ -1,11 +1,9 @@
 <template lang="html">
   <div class="app">
-    <form>
 
-      <textarea v-model="message"></textarea>
-      <span class="error" v-show="!message">You must enter a message</span>
-      <button type="submit" v-show="message">Send Message</button>
-    </form>
+
+      <button type="submit" @click="updateCount">Increment Counter: {{ count }}</button>
+
 
     <pre>{{ $data | json}}</pre>
   </div>
@@ -16,11 +14,18 @@ export default {
   data() {
     return {
       message: '',
+      count: 0,
     };
   },
 
   methods: {
+    handleIt() {
+      alert('Handled');
+    },
 
+    updateCount() {
+      this.count += 1;
+    },
   },
 };
 </script>
